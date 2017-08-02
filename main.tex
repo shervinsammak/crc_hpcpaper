@@ -1,220 +1,111 @@
-\documentclass{sig-alternate-05-2015}
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
 \usepackage[colorlinks,bookmarksopen,bookmarksnumbered,citecolor=red,urlcolor=red]{hyperref}
-\usepackage{verbatim}
-
 \newcommand{\fp}[1]{ {\textcolor{green}    { **Fangping:  #1 }}}
 \newcommand{\bm}[1]{ {\textcolor{blue}    { **Barry:  #1 }}}
 \newcommand{\kim}[1]{ {\textcolor{cyan}    { **Kim:  #1 }}}
-\newcommand{\ss}[1]{ {\textcolor{yellow}    { **Shervin:  #1 }}}
+\newcommand{\shervin}[1]{ {\textcolor{black}    { **Shervin:  #1 }}}
 \newcommand{\ketan}[1]{ {\textcolor{red}    { **Ketan:  #1 }}}
-\setlength\parindent{0pt}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-
-% Copyright
-%\setcopyright{acmcopyright}
-%\setcopyright{acmlicensed}
-%\setcopyright{rightsretained}
-%\setcopyright{usgov}
-%\setcopyright{usgovmixed}
-%\setcopyright{cagov}
-%\setcopyright{cagovmixed}
-
-% DOI
-%\doi{10.}
-
-% ISBN
-%\isbn{123-4567-24-567/08/06}
-
-%Conference
-%\conferenceinfo{PLDI '13}{June 16--19, 2013, Seattle, WA, USA}
-
-%\acmPrice{\$15.00}
-
-%
-% --- Author Metadata here ---
-%\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
-%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
-%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
-% --- End of Author Metadata ---
-
-\title{A holistic approach to HPC End-User Education
-%\titlenote{(Produces the permission block, and
-%copyright information). For use with
-%SIG-ALTERNATE.CLS. Supported by ACM.}
+\title{Paper Title*\\
+{\footnotesize \textsuperscript{*}Note: Sub-titles are not captured in Xplore and
+should not be used}
+\thanks{Identify applicable funding agency here. If none, delete this.}
 }
 
-%\subtitle{[Extended Abstract]
-%\titlenote{A full version of this paper is available as
-%\textit{Author's Guide to Preparing ACM SIG Proceedings Using
-%\LaTeX$2_\epsilon$\ and BibTeX} at
-%\texttt{www.acm.org/eaddress.htm}}
-%}
-%
-% You need the command \numberofauthors to handle the 'placement
-% and alignment' of the authors beneath the title.
-%
-% For aesthetic reasons, we recommend 'three authors at a time'
-% i.e. three 'name/affiliation blocks' be placed beneath the title.
-%
-% NOTE: You are NOT restricted in how many 'rows' of
-% "name/affiliations" may appear. We just ask that you restrict
-% the number of 'columns' to three.
-%
-% Because of the available 'opening page real-estate'
-% we ask you to refrain from putting more than six authors
-% (two rows with three columns) beneath the article title.
-% More than six makes the first-page appear very cluttered indeed.
-%
-% Use the \alignauthor commands to handle the names
-% and affiliations for an 'aesthetic maximum' of six authors.
-% Add names, affiliations, addresses for
-% the seventh etc. author(s) as the argument for the
-% \additionalauthors command.
-% These 'additional authors' will be output/set for you
-% without further effort on your part as the last section in
-% the body of your article BEFORE References or any Appendices.
-
-%\numberofauthors{8} %  in this sample file, there are a *total*
-% of EIGHT authors. SIX appear on the 'first-page' (for formatting
-% reasons) and the remaining two appear in the \additionalauthors section.
-%
-
-\author{CRC Team}
-
-%% You can go ahead and credit any number of authors here,
-%% e.g. one 'row of three' or two rows (consisting of one row of three
-%% and a second row of one, two or three).
-%%
-%% The command \alignauthor (no curly braces needed) should
-%% precede each author name, affiliation/snail-mail address and
-%% e-mail address. Additionally, tag each line of
-%% affiliation/address with \affaddr, and tag the
-%% e-mail address with \email.
-%%
-%% 1st. author
-%\alignauthor
-%Ben Trovato\titlenote{Dr.~Trovato insisted his name be first.}\\
-%       \affaddr{Institute for Clarity in Documentation}\\
-%       \affaddr{1932 Wallamaloo Lane}\\
-%       \affaddr{Wallamaloo, New Zealand}\\
-%       \email{trovato@corporation.com}
-%% 2nd. author
-%\alignauthor
-%G.K.M. Tobin\titlenote{The secretary disavows
-%any knowledge of this author's actions.}\\
-%       \affaddr{Institute for Clarity in Documentation}\\
-%       \affaddr{P.O. Box 1212}\\
-%       \affaddr{Dublin, Ohio 43017-6221}\\
-%       \email{webmaster@marysville-ohio.com}
-%% 3rd. author
-%\alignauthor Lars Th{\o}rv{\"a}ld\titlenote{This author is the
-%one who did all the really hard work.}\\
-%       \affaddr{The Th{\o}rv{\"a}ld Group}\\
-%       \affaddr{1 Th{\o}rv{\"a}ld Circle}\\
-%       \affaddr{Hekla, Iceland}\\
-%       \email{larst@affiliation.org}
-%\and  % use '\and' if you need 'another row' of author names
-%% 4th. author
-%\alignauthor Lawrence P. Leipuner\\
-%       \affaddr{Brookhaven Laboratories}\\
-%       \affaddr{Brookhaven National Lab}\\
-%       \affaddr{P.O. Box 5000}\\
-%       \email{lleipuner@researchlabs.org}
-%% 5th. author
-%\alignauthor Sean Fogarty\\
-%       \affaddr{NASA Ames Research Center}\\
-%       \affaddr{Moffett Field}\\
-%       \affaddr{California 94035}\\
-%       \email{fogartys@amesres.org}
-%% 6th. author
-%\alignauthor Charles Palmer\\
-%       \affaddr{Palmer Research Laboratories}\\
-%       \affaddr{8600 Datapoint Drive}\\
-%       \affaddr{San Antonio, Texas 78229}\\
-%       \email{cpalmer@prl.com}
-%}
-% There's nothing stopping you putting the seventh, eighth, etc.
-% author on the opening page (as the 'third row') but we ask,
-% for aesthetic reasons that you place these 'additional authors'
-% in the \additional authors block, viz.
-
-\additionalauthors{Additional authors: John Smith (The Th{\o}rv{\"a}ld Group,
-email: {\texttt{jsmith@affiliation.org}}) and Julius P.~Kumquat
-(The Kumquat Consortium, email: {\texttt{jpkumquat@consortium.net}}).}
-\date{30 July 1999}
-
-% Just remember to make sure that the TOTAL number of authors
-% is the number that will appear on the first page PLUS the
-% number that will appear in the \additionalauthors section.
+\author{\IEEEauthorblockN{1\textsuperscript{st} Given Name Surname}
+\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+\textit{name of organization (of Aff.)}\\
+City, Country \\
+email address}
+\and
+\IEEEauthorblockN{2\textsuperscript{nd} Given Name Surname}
+\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+\textit{name of organization (of Aff.)}\\
+City, Country \\
+email address}
+\and
+\IEEEauthorblockN{3\textsuperscript{rd} Given Name Surname}
+\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+\textit{name of organization (of Aff.)}\\
+City, Country \\
+email address}
+\and
+\IEEEauthorblockN{4\textsuperscript{th} Given Name Surname}
+\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+\textit{name of organization (of Aff.)}\\
+City, Country \\
+email address}
+\and
+\IEEEauthorblockN{5\textsuperscript{th} Given Name Surname}
+\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+\textit{name of organization (of Aff.)}\\
+City, Country \\
+email address}
+\and
+\IEEEauthorblockN{6\textsuperscript{th} Given Name Surname}
+\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+\textit{name of organization (of Aff.)}\\
+City, Country \\
+email address}
+}
 
 \maketitle
+
 \begin{abstract}
-
-Abstract goes here.
-
+This document is a model and instructions for \LaTeX.
+This and the IEEEtran.cls file define the components of your paper [title, text, heads, etc.]. *CRITICAL: Do Not Use Symbols, Special Characters, Footnotes, 
+or Math in Paper Title or Abstract.
 \end{abstract}
 
-%
-% The code below should be generated by the tool at
-% http://dl.acm.org/ccs.cfm
-% Please copy and paste the code instead of the example below. 
-%
-%\begin{CCSXML}
-%<ccs2012>
-% <concept>
-%  <concept_id>10010520.10010553.10010562</concept_id>
-%  <concept_desc>Computer systems organization~Embedded systems</concept_desc>
-%  <concept_significance>500</concept_significance>
-% </concept>
-% <concept>
-%  <concept_id>10010520.10010575.10010755</concept_id>
-%  <concept_desc>Computer systems organization~Redundancy</concept_desc>
-%  <concept_significance>300</concept_significance>
-% </concept>
-% <concept>
-%  <concept_id>10010520.10010553.10010554</concept_id>
-%  <concept_desc>Computer systems organization~Robotics</concept_desc>
-%  <concept_significance>100</concept_significance>
-% </concept>
-% <concept>
-%  <concept_id>10003033.10003083.10003095</concept_id>
-%  <concept_desc>Networks~Network reliability</concept_desc>
-%  <concept_significance>100</concept_significance>
-% </concept>
-%</ccs2012>  
-%\end{CCSXML}
-%
-%\ccsdesc[500]{Computer systems organization~Embedded systems}
-%\ccsdesc[300]{Computer systems organization~Redundancy}
-%\ccsdesc{Computer systems organization~Robotics}
-%\ccsdesc[100]{Networks~Network reliability}
+\begin{IEEEkeywords}
+Storage systems, ZFS, HPC
+\end{IEEEkeywords}
 
 
-%
-% End generated code
-%
-
-%
-%  Use this command to print the description
-%
-%\printccsdesc
-
-% We no longer use \terms command
-%\terms{Theory}
-
-\keywords{Storage systems; ZFS; HPC}
 
 \section{Introduction}
 
 \fp{ Test Comment } \bm{ Test Comment } \ketan{ Test Comment }  \kim{ Test Comment }
 
-\ss{
-The University is best served by servicing the missing middle. The missing middle is the void
+
+The Center for Research Computing (CRC) is the University's closest thing to research computing.
+While CRC maintains the University's largest cluster, the
+funding model has resulted in a highly heterogeneous architecture that is essentially a {\it Frankenstein} of
+many smaller clusters. In the past year, CRC tried to meet the following requirements:
+
+\begin{itemize}
+
+\item Merge any small portion of the cluster around the university. 
+
+\item Significant investment in hardware, in terms of compute, storage and networking from the Provost Office had been made. 
+
+\item The CRC grows in terms of personnel. Personnel are dedicated system administrators. These administrators are Ph.D. level scientists and are in charge of system admin, user admin and daily
+technical support. They are also domain experts with high performance computing expertise with significant computational research experience. Research computing is the blending of traditional science with cutting-edge computational expertise. As such an excellent scientist with no computational skills will not
+be successful in this space. Likewise, an excellent computer scientist/programmer will not be successful in this space. However, domain experts with both the science and computing background,
+capable of interfacing with both traditional scientist and computer scientists are the glue required
+for successful collaborations in research computing. Such a model is the status quo at all major
+national labs and national computing centers.
+
+\end{itemize}
+
+
+\shervin{
+The University of Pittsburgh is best served by servicing the missing middle. The missing middle is the void
 between lab level and department level computing resources which order $O(10^1)-O(10^2)$ processors and national resources which order $O(10^5)-O(10^6)$ processors. In the same way that the
 University's mission is to develop and prepare graduates for the workforce, research computing
 at the University should develop and prepare computational researcher's for the utilization of
-facilities at the largest scale (national labs). 
+facilities at the largest scale (national labs).}
 
 \begin{itemize}
 \item Outreach
@@ -224,13 +115,13 @@ facilities at the largest scale (national labs).
 \end{itemize}
 
 \subsection{Engagement}
-One of the main duties of Consultants at CRC	is meeting with	researchers	in order to better	
-understand their computational needs	 and	 to	 help	 them	 select	 appropriate resources and	
-approaches. These engagements are important for accelerating the	adoption of ACI	
-resources	 in	support	of research endeavors. At Pit, we are also engaged in face-to-face meeting with researchers. For that, regular office hours are assigned so that students can meet with CRC team.
+One of the main duties of Consultants at CRC is meeting with	researchers	in order to better	understand their computational needs and to help them select appropriate resources and approaches. These engagements are important for accelerating the adoption of ACI resources in support of research endeavors. At Pit, we are also engaged in face-to-face meeting with researchers. For that, regular office hours are assigned so that students can meet with CRC team.
 
-}
-
+\subsection{Effort to be done}
+Compute is
+cheap, storage is not, having all storage backed up is even more expensive. The University needs
+to recognize that this requires significant investment, especially in regards to big data. Moreover,
+an upgrade path and budget to replace and extend these resources needs to be in place.
 
 \section{Conclusions}
 
@@ -248,3 +139,22 @@ Acknowledge CRC.
 
 ====== IGNORE ========
 Comments and brainstorming go here!
+
+High Performance Computing (HPC) and, in general, Parallel and Distributed Computing (PDC) has become pervasive, from supercomputers and server farms containing multicore CPUs and GPUs, to individual PCs, laptops, and mobile devices. Even casual users of computers now depend on parallel processing. Therefore it is important for every computer user (and especially every programmer) to understand how parallelism and distributed computing affect problem solving. It is essential for educators to impart a range of PDC and HPC knowledge and skills at multiple levels within the educational fabric woven by Computer Science (CS), Computer Engineering (CE), and related computational curricula including data science. Companies and laboratories need people with these skills, and, as a result, they are finding that they must now engage in extensive on-the-job training. Nevertheless, rapid changes in hardware platforms, languages, and programming environments increasingly challenge educators to decide what to teach and how to teach it, in order to prepare students for careers that are increasingly likely to involve PDC and HPC.
+
+This workshop invites unpublished manuscripts from academia, industry, and government laboratories on topics pertaining to the needs and approaches for augmenting undergraduate and graduate education in Computer Science and Engineering, Computational Science, and computational courses for both STEM and business disciplines with PDC and HPC concepts.  We also encourage papers on large-scale data science.
+
+The workshop is particularly dedicated to bringing together stakeholders from industry (both hardware vendors and employers), government labs, and academia in the context of SC-17.  The goal is for each to hear the challenges faced by others, to learn about various approaches to addressing these challenges, and to have opportunities to exchange ideas and solutions. In addition to contributed talks, this workshop may feature invited talks on opportunities for collaboration, resource sharing, educator training, internships, and other means of increasing cross-fertilization between industry, government, and academia.
+
+Topics of interest include, but are not limited to:
+
+1. Pedagogical issues in incorporating PDC and HPC in undergraduate and graduate education, especially in core courses
+2. Novel ways of teaching PDC and HPC topics
+3. Data Science and Big Data aspects of teaching HPC/PDC including early experience with data science degree programs.
+4. Experience with incorporating PDC and HPC topics into core CS/CE courses and in domain Computational Science and Engineering courses
+5. Pedagogical tools, programming environments, infrastructures, languages, and projects for PDC and HPC
+6. Employers' experiences with and expectation of the level of PDC and HPC proficiency among new graduates
+7. Education resources based on higher-level programming languages, models, and environments such as PGAS, X10, Chapel, Haskell, Python, Cilk, CUDA, OpenCL, OpenACC, and Hadoop  
+8. Parallel and distributed models of programming and computation suitable for teaching, learning, and workforce development.
+9. Projects or units that introduce students to concepts relevant to Internet of Things, networking, or other topics in mobile devices or sensor networks.
+10. Issues and experiences addressing the gender gap in computing and broadening participation of underrepresented groups.
